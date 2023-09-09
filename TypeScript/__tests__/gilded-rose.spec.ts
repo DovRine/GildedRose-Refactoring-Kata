@@ -1,4 +1,4 @@
-import { Item, GildedRose } from '@/gilded-rose';
+import { Item, GildedRose } from '../app/gilded-rose';
 
 
 describe('Gilded Rose', () => {
@@ -22,7 +22,6 @@ describe('Gilded Rose', () => {
     for (const { name, sellIn, quality } of gildedRose.items) {
       expect(sellIn).toBe(data[name].sellIn - 1)
       expect(quality).toBe(data[name].quality - 1)
-      console.log(quality, data[name].quality)
     }
   });
   it('should lower the quality twice as fast if sell by date has passed', () => {
