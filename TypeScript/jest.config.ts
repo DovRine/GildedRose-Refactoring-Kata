@@ -1,13 +1,10 @@
-import { pathsToModuleNameMapper } from  "ts-jest";
-import { compilerOptions } from './tsconfig.json'
+import type { Config } from 'jest'
 
-export default {
-  roots: ['<rootDir>/app', '<rootDir>/test/jest'],
-  collectCoverage: true,
-  coverageDirectory: 'coverage',
-  coverageProvider: 'v8',
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' } ),
-};
+export default async (): Promise<Config> => {
+    return {
+        rootDir: process.cwd(),
+        moduleFileExtensions: ['ts', 'js' ],
+        transform: { '.*\\.(ts?)$': '@swc/jest' }
+    }
+}
+
