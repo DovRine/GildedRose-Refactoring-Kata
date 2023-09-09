@@ -6,7 +6,8 @@
     "precompile": "npm run clean",
     "compile": "tsc",
     "clean": "rimraf app/**/*.js test/**/*.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "license": "MIT",
   "private": true,
